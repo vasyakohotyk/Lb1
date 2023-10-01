@@ -1,4 +1,4 @@
-import java.util.Arrays;
+\import java.util.Arrays;
 import java.util.Comparator;
 
 public class SortByUppercaseLetters {
@@ -6,8 +6,6 @@ public class SortByUppercaseLetters {
         String[] strings = {"Hello", "WORLD", "abc", "DefG", "Java"};
 
         Arrays.sort(strings, new UppercaseLetterComparator());
-
-        // Виводимо відсортований масив
         for (String str : strings) {
             System.out.println(str);
         }
