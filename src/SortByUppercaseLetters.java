@@ -5,7 +5,6 @@ public class SortByUppercaseLetters {
     public static void main(String[] args) {
         String[] strings = {"Hello", "WORLD", "abc", "DefG", "Java"};
 
-        // Використовуємо компаратор для сортування за кількістю великих літер
         Arrays.sort(strings, new UppercaseLetterComparator());
 
         // Виводимо відсортований масив
@@ -21,7 +20,6 @@ class UppercaseLetterComparator implements Comparator<String> {
         int count1 = countUppercaseLetters(s1);
         int count2 = countUppercaseLetters(s2);
 
-        // Порівнюємо рядки за кількістю великих літер
         return Integer.compare(count1, count2);
     }
 
