@@ -6,7 +6,7 @@ public class MatrixMultiplication {
         int numColsB = B[0].length;
 
         if (numColsA != numRowsB) {
-            throw new IllegalArgumentException("Неможливо виконати множення матриць.");
+            throw new IllegalArgumentException("Cannot perform matrix multiplication.");
         }
 
         int[][] result = new int[numRowsA][numColsB];
