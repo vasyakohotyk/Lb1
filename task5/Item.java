@@ -9,7 +9,7 @@ public class Item {
         this.size = size;
     }
 
-    // Геттери і сеттери для полів name, weight, size
+   
     public String getName() {
         return name;
     }
@@ -44,39 +44,34 @@ class Shipment {
     public Shipment(String deliveryMethod) {
         this.deliveryMethod = deliveryMethod;
         this.items = new Item[10];
-        // Встановлюємо обмеження ваги і розміру відправлення залежно від способу доставки
-        if (deliveryMethod.equals("вантажівка")) {
+        if (deliveryMethod.equals("truck")) {
             maxWeightLimit = 100.0;
             maxSizeLimit = 200.0;
-        } else if (deliveryMethod.equals("потяг")) {
+        } else if (deliveryMethod.equals("the train")) {
             maxWeightLimit = 50.0;
             maxSizeLimit = 150.0;
-        } else if (deliveryMethod.equals("бус")) {
+        } else if (deliveryMethod.equals("beads")) {
             maxWeightLimit = 30.0;
             maxSizeLimit = 100.0;
-        } else if (deliveryMethod.equals("велокур’єр")) {
+        } else if (deliveryMethod.equals("bicycle courier")) {
             maxWeightLimit = 5.0;
             maxSizeLimit = 50.0;
         }
     }
 
-    // Метод для додавання посилки до відправлення
     public void addItem(Item item) {
-        // Перевіряємо, чи не перевищені обмеження ваги і розміру
         if (item.getWeight() <= maxWeightLimit && item.getSize() <= maxSizeLimit) {
-            // Додаємо посилку до відправлення
-            // Додайте логіку для додавання посилки до масиву items тут
+            items[itemCount] = item;
+            itemCount++;
         } else {
-            System.out.println("Посилка не відповідає обмеженням по розміру або вазі.");
+            System.out.println("The package does not meet the size or weight restrictions.");
         }
     }
 
-    // Метод для скасування відправлення
     public void cancelShipment() {
-        // Додайте логіку скасування відправлення тут
+       items = null;
     }
 
-    // Геттери і сеттери для полів items, deliveryMethod
     public Item[] getItems() {
         return items;
     }
@@ -102,8 +97,7 @@ class Customer {
         this.name = name;
         this.address = address;
     }
-
-    // Геттери і сеттери для полів name, address
+    
     public String getName() {
         return name;
     }
@@ -128,7 +122,6 @@ class ReceivePoint {
         this.address = address;
     }
 
-    // Геттер і сеттер для поля address
     public String getAddress() {
         return address;
     }
@@ -145,7 +138,6 @@ class DeparturePoint {
         this.address = address;
     }
 
-    // Геттер і сеттер для поля address
     public String getAddress() {
         return address;
     }
@@ -156,7 +148,6 @@ class DeparturePoint {
 }
 
 class DeliveryService {
-    // Масиви для збереження адрес відділень доставки і відправлень
     private DeparturePoint[] departurePoints;
     private ReceivePoint[] receivePoints;
     private Shipment[] shipments;
@@ -167,23 +158,16 @@ class DeliveryService {
         this.shipments = new Shipment[100];
     }
 
-    // Метод для створення відправлення
     public void createShipment(Customer customer, Item[] items, String deliveryMethod) {
         Shipment shipment = new Shipment(deliveryMethod);
         shipment.setItems(items);
-        // Додаємо відправлення до масиву shipments
-        // Додайте логіку для додавання відправлення тут
+        
     }
 
-    // Метод для доставки велокур'єром
     public void deliverByBicycleCourier(Customer customer, Item[] items) {
-        // Створюємо відправлення для велокур'єра
-        Shipment shipment = new Shipment("велокур’єр");
+        Shipment shipment = new Shipment("bicycle courier");
         shipment.setItems(items);
-        // Додаємо відправлення до масиву shipments
-        // Додайте логіку для доставки велокур'єром тут
+        
     }
 
-    // Інші методи і логіка для управління сервісом
-}
-
+} 
