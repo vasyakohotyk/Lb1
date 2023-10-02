@@ -5,13 +5,13 @@ public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введіть перше число: ");
+        System.out.print("Enter the first number: ");
         double num1 = scanner.nextDouble();
 
-        System.out.print("Введіть операцію (+, -, *, /): ");
+        System.out.print("Enter the operation (+, -, *, /): ");
         String operator = scanner.next();
 
-        System.out.print("Введіть друге число: ");
+        System.out.print("Enter the second number: ");
         double num2 = scanner.nextDouble();
 
         double result;
@@ -28,16 +28,16 @@ public class Calculator {
                 break;
             case "/":
                 if (num2 == 0) {
-                    System.out.println("Помилка: Ділення на 0 неможливе.");
+                    System.out.println("Division by 0 is not possible.");
                     return;
                 }
                 result = num1 / num2;
                 break;
             default:
-                System.out.println("Помилка: Невірний знак операції.");
+                System.out.println("Invalid operation sign.");
                 return;
         }
 
-        System.out.println("Результат: " + result);
+        System.out.println("Result: " + result);
     }
 }
