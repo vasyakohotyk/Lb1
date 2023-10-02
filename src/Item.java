@@ -44,16 +44,16 @@ class Shipment {
     public Shipment(String deliveryMethod) {
         this.deliveryMethod = deliveryMethod;
         this.items = new Item[10];
-        if (deliveryMethod.equals("вантажівка")) {
+        if (deliveryMethod.equals("truck")) {
             maxWeightLimit = 100.0;
             maxSizeLimit = 200.0;
-        } else if (deliveryMethod.equals("потяг")) {
+        } else if (deliveryMethod.equals("the train")) {
             maxWeightLimit = 50.0;
             maxSizeLimit = 150.0;
-        } else if (deliveryMethod.equals("бус")) {
+        } else if (deliveryMethod.equals("beads")) {
             maxWeightLimit = 30.0;
             maxSizeLimit = 100.0;
-        } else if (deliveryMethod.equals("велокур’єр")) {
+        } else if (deliveryMethod.equals("bicycle courier")) {
             maxWeightLimit = 5.0;
             maxSizeLimit = 50.0;
         }
@@ -64,7 +64,7 @@ class Shipment {
             items[itemCount] = item;
             itemCount++;
         } else {
-            System.out.println("Посилка не відповідає обмеженням по розміру або вазі.");
+            System.out.println("The package does not meet the size or weight restrictions.");
         }
     }
 
@@ -165,7 +165,7 @@ class DeliveryService {
     }
 
     public void deliverByBicycleCourier(Customer customer, Item[] items) {
-        Shipment shipment = new Shipment("велокур’єр");
+        Shipment shipment = new Shipment("bicycle courier");
         shipment.setItems(items);
         
     }
